@@ -6,13 +6,21 @@ import CollegiateScreen from './App/screens/CollegiateScreen';
 import PigeonDevScreen from './App/screens/PigeonDevScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Teams } from './App/context/context';
+import { useState } from 'react';
+import React from 'react';
+
 
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function App()  {
+
+  const [team, setTeam] = useState([]);
+
   return (
     <NavigationContainer>
+      <Teams.Provider value={{team, setTeam}}>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Pigeon Of the Death Quizz" component={HomeScreen} />
         <Stack.Screen name="Create a Game" component={CreateGameScreen} />
@@ -21,7 +29,10 @@ export default function App() {
         <Stack.Screen name="Collegiate Question" component={CollegiateScreen} />
         <Stack.Screen name="PigeonDeath Question" component={PigeonDevScreen} />
       </Stack.Navigator>
+      </Teams.Provider>
     </NavigationContainer>
+
+
   );
 }
 

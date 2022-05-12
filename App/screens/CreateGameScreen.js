@@ -1,14 +1,15 @@
 import { View } from 'react-native';
-import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import CreateGameBoard from '../components/CreateGameBoard/CreateGameBoard';
+import { useContext } from 'react';
+import { Teams } from '../context/context';
 
 export default function CreateGameScreen() {
+  const {team, setTeam} = useContext(Teams);
   return (
     <View>
       <Header/>
       <CreateGameBoard/>
-      <Footer title='(You are the master, you decide.)'/>
     </View>
   )
 }
