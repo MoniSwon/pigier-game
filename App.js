@@ -4,7 +4,6 @@ import DashboardScreen from './App/screens/DashboardScreen';
 import BellScreen from './App/screens/BellScreen';
 import CollegiateScreen from './App/screens/CollegiateScreen';
 import PigeonDevScreen from './App/screens/PigeonDevScreen';
-import ScoreBoardScreen from './App/screens/ScoreBoardScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
