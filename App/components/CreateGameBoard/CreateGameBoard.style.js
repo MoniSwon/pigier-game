@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     input: {
         borderWidth:2,
         width:200,
-
+        justifyContent:'center'
     },
     textButton: {
         fontSize: 20,
@@ -29,8 +29,10 @@ export const styles = StyleSheet.create({
         justifyContent:'space-between',
         paddingTop: 10,
         paddingBottom: 10,
-        paddingLeft: 40,
-        paddingRight: 40,
+        paddingLeft: 30,
+        paddingRight: 30,
+        marginLeft:20,
+        marginRight:20,
         borderRadius: 30,
         backgroundColor: 'lightsteelblue',
         with:50,
