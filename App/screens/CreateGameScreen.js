@@ -1,11 +1,13 @@
 import { View } from 'react-native';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import CreateGameBoard from '../components/CreateGameBoard/CreateGameBoard';
 
 export default function CreateGameScreen() {
   return (
     <View>
-      <Header title="Creation of the game"/>
+      <Header/>
+      <CreateGameBoard/>
       <Footer title='(You are the master, you decide.)'/>
     </View>
   )
