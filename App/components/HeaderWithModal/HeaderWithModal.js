@@ -1,13 +1,18 @@
-import { Text, View, Image, TouchableWithoutFeedback} from 'react-native';
+import { Text, View, Image, TouchableWithoutFeedback, Modal, Pressable } from 'react-native';
 import { styles } from './HeaderWithModal.style';
+import React, { useState } from "react";
+
+
 
 export default function HeaderWithModal() {
     const showModal = () => {
         console.log("hey");
     }
+    const [modalVisible, setModalVisible] = useState(false);
+
     return (
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={() => showModal()}>
+            <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
                 <Image
                     style={styles.imageicon}
                     source={require('../../image/menu-icon.png')}
@@ -18,6 +23,31 @@ export default function HeaderWithModal() {
                 style={styles.image}
                 source={require('../../image/pigeon.png')}
             />
+
+
+            <View style={styles.centeredView}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                        setModalVisible(!modalVisible);
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.modalText}>Hello World!</Text>
+                            <Pressable
+                                style={[styles.button, styles.buttonClose]}
+                                onPress={() => setModalVisible(!modalVisible)}
+                            >
+                                <Text style={styles.textStyle}>Hide the score</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </Modal>
+
+            </View>
         </View>
     );
 }
