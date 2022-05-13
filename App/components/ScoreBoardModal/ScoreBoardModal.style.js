@@ -23,6 +23,8 @@ export const styles = StyleSheet.create({
     pointText: {
         margin:10,
         fontSize:25,
+        flexWrap:'wrap',
+        width:'50%'
     },
     endModal: {
         display: 'flex',
@@ -36,7 +38,6 @@ export const styles = StyleSheet.create({
     buttonText : {
         fontWeight:'bold',
         color:'white',
-
     }
 
 });
