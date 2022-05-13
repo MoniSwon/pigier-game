@@ -1,20 +1,28 @@
-import { View, TextInput, Pressable, Text } from 'react-native';
+import { View, TextInput, Pressable, Text, SafeAreaView, FlatList, Button } from 'react-native';
 import { styles } from './CreateGameBoard.style';
 import { Teams } from '../../context/context';
-import { useContext, useState } from 'react';
-
+import { useContext, useState, Fragment } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function CreateGameBoard() {
-    const {team, setTeam} = useContext(Teams);
+    const navigation = useNavigation();
+    const { team, setTeam } = useContext(Teams);
     const [name, setName] = useState("");
     const newTeam = (name) => {
-         team.push({
+        setTeam([...team, {
             name: name,
             score: 0,
-            id:team.length,
-        })
-        return team
+            id: team.length,
+        }])
+        console.log(team.length)
+    }
+
+    const deleteTeam = (id) => {
+        const newTeam = team.filter((team, teamIndex) => {
+            return teamIndex !== id;
+        });
+        setTeam(newTeam);
     }
 
     return (
@@ -22,16 +30,64 @@ export default function CreateGameBoard() {
             <TextInput
                 style={styles.input}
                 placeholder="Name of the team"
-                onChangeText={(name) => setName(name)}  
+                onChangeText={(name) => setName(name)}
             />
             <View style={styles.containerButton}>
-            <Pressable style={styles.button} onPress={() => setTeam(newTeam(name))}>
-                <Text style={styles.textButton}>Add</Text>
-            </Pressable>
-            <Pressable style={styles.button} onPress={() => console.log(team)}>
-                <Text style={styles.textButton}>Start the game</Text>
-            </Pressable>
+                <Pressable style={styles.button} onPress={() => newTeam(name)}>
+                    <Text style={styles.textButton}>Add</Text>
+                </Pressable>
+                <Pressable style={styles.button} onPress={() => navigation.navigate('Dashboard')}>
+                    <Text style={styles.textButton}>Let's play!</Text>
+                </Pressable>
+            </View>
+
+            <View style={styles.line}></View>
+
+            <View>
+                <SafeAreaView>
+                    <FlatList
+                        data={team}
+                        contentContainerStyle={{
+                            display:'flex',
+                            flexDirection:'column',
+                            padding: 20,
+                        }}
+                        showsVerticalScrollIndicator={false}
+                        renderItem={({ item }) =>
+                            <Fragment>
+                                <Pressable style={{
+                                    backgroundColor: 'rgb(249,214,53)',
+                                    width: 250,
+                                    height: 50,
+                                    borderRadius: 10,
+                                    margin: 10,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    flexDirection: 'column'
+                                }}
+                                    onPress={() => deleteTeam(item.id)}>
+                                    <Text style={styles.flatlist}>{item.name}</Text>
+                                </Pressable>
+                                <Pressable
+                                    style={{
+                                        backgroundColor: 'rgb(249,214,53)',
+                                        width: 50,
+                                        height: 50,
+                                        borderRadius: 100,
+                                        margin: 10,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}
+                                    onPress={() => deleteTeam(item.id)}>
+                                        <Text style={styles.flatlist}>✖</Text>
+                                </Pressable>
+                            </Fragment>
+                        }
+                        keyExtractor={item => item.id}
+                    />
+                </SafeAreaView>
             </View>
         </View>
     );
+    //do a flatlist of all the team that was created and then, create a button in each of these list to delete the team
 }

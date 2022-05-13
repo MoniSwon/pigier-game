@@ -5,7 +5,7 @@ import Header from '../components/Header/Header';
 export default function DashboardScreen() {
   return (
     <View>
-      <Header title="Dashboard"/>
+      <Header/>
       <Footer title='(You are the master, you decide.)'/>
     </View>
   )
