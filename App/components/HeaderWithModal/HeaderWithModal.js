@@ -1,6 +1,7 @@
 import { Text, View, Image, TouchableWithoutFeedback, Modal, Pressable } from 'react-native';
 import { styles } from './HeaderWithModal.style';
 import React, { useState } from "react";
+import ScoreBoardModal from '../ScoreBoardModal/ScoreBoardModal';
 
 
 
@@ -36,13 +37,13 @@ export default function HeaderWithModal() {
                 >
                     <View style={styles.centeredView}>
                         <View style={styles.modalView}>
-                            <Text style={styles.modalText}>Hello World!</Text>
                             <Pressable
                                 style={[styles.button, styles.buttonClose]}
                                 onPress={() => setModalVisible(!modalVisible)}
                             >
                                 <Text style={styles.textStyle}>Hide the score</Text>
                             </Pressable>
+                            <ScoreBoardModal/>
                         </View>
                     </View>
                 </Modal>

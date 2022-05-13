@@ -57,5 +57,10 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'monospace',
         fontWeight: 'bold',
+    },
+    buttonTeam : {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent:'center',
     }
 });

@@ -54,6 +54,7 @@ export default function CreateGameBoard() {
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item }) =>
                             <Fragment>
+                                <View style={styles.buttonTeam}>
                                 <Pressable style={{
                                     backgroundColor: 'rgb(249,214,53)',
                                     width: 250,
@@ -80,6 +81,7 @@ export default function CreateGameBoard() {
                                     onPress={() => deleteTeam(item.id)}>
                                         <Text style={styles.flatlist}>✖</Text>
                                 </Pressable>
+                                </View>
                             </Fragment>
                         }
                         keyExtractor={item => item.id}

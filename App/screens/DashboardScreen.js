@@ -7,7 +7,6 @@ export default function DashboardScreen() {
   return (
     <View>
       <HeaderWithModal/>
-      <ScoreBoardModal/>
       <Footer title='(You are the master, you decide.)'/>
     </View>
   )
