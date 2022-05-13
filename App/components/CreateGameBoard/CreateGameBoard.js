@@ -15,7 +15,6 @@ export default function CreateGameBoard() {
             score: 0,
             id: team.length,
         }])
-        console.log(team.length)
     }
 
     const deleteTeam = (id) => {
