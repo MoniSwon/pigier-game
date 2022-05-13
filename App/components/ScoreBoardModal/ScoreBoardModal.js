@@ -52,7 +52,7 @@ export default function ScoreBoardModal() {
                     alignItems: 'center',
                 }}
                     onPress={() => playAgain()}>
-                    <Text style={styles.buttonText}>Relancer</Text>
+                    <Text style={styles.buttonText}>Reset the score</Text>
                 </Pressable>
                 <Pressable
                     style={{
@@ -64,7 +64,7 @@ export default function ScoreBoardModal() {
                         alignItems: 'center',
                     }}
                     onPress={() => finishGame()}>
-                    <Text style={styles.buttonText}>Terminer</Text>
+                    <Text style={styles.buttonText}>Restart the game</Text>
                 </Pressable>
             </View>
         </View>

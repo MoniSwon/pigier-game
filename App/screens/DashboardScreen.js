@@ -1,13 +1,13 @@
 import { View } from 'react-native';
-import Footer from '../components/Footer/Footer';
 import HeaderWithModal from '../components/HeaderWithModal/HeaderWithModal';
-import ScoreBoardModal from '../components/ScoreBoardModal/ScoreBoardModal';
+import Dashboard from '../components/Dashboard/Dashboard';
+
 
 export default function DashboardScreen() {
   return (
     <View>
       <HeaderWithModal/>
-      <Footer title='(You are the master, you decide.)'/>
+      <Dashboard/>
     </View>
   )
 }
