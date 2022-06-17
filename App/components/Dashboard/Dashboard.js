@@ -8,6 +8,7 @@ import { styles } from './Dashboard.style';
 export default function Dashboard() {
     const { team, setTeam } = useContext(Teams);
     const navigation = useNavigation();
+    
 
     return (
         <View style={styles.container}>
